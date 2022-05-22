@@ -2,6 +2,8 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/jwillker/sherlock)](https://goreportcard.com/report/github.com/jwillker/sherlock)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jwillker/sherlock/main/LICENSE)
 [![Golang](https://img.shields.io/badge/Go-1.18-blue.svg)](https://golang.org)
+[![build](https://github.com/jwillker/sherlock/actions/workflows/build.yml/badge.svg)](https://github.com/jwillker/sherlock/actions/workflows/build.yml)
+[![golangci-lint](https://github.com/jwillker/sherlock/actions/workflows/lint.yml/badge.svg)](https://github.com/jwillker/sherlock/actions/workflows/lint.yml)
 
 A tool to search and index Golang projetcs in Sally vanity config
 
