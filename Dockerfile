@@ -4,6 +4,8 @@ RUN apk update && \
     apk add --no-cache git && \
     rm -rf /var/cache/apk/*
 
+COPY . .
+
 RUN go mod download && \
     go build -o /app/sherlock
 
