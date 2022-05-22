@@ -4,14 +4,15 @@ RUN apk update && \
     apk add --no-cache git && \
     rm -rf /var/cache/apk/*
 
-COPY . .
+WORKDIR /app/
+COPY . /app/
 
 RUN go mod download && \
-    go build -o /app/sherlock
+    go build -o sherlock
 
 
 FROM alpine
 
 COPY --from=builder /app/sherlock /sherlock
 
-ENTRYPOINT [ "sherlock" ]
+ENTRYPOINT [ "/sherlock" ]
