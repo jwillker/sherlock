@@ -9,6 +9,8 @@ A tool to search and index Golang projetcs in Sally vanity config
 
 ## How to use
 
+:warning: For now it only supports gitlab
+
 ```
 Usage:
   sherlock investigate [flags]
