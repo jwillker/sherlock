@@ -7,6 +7,14 @@
 
 A tool to search and index Golang projetcs in Sally vanity config
 
+## Install
+
+```
+go install github.com/jwillker/sherlock@latest 
+```
+
+or download the [binary](https://github.com/jwillker/sherlock/releases) specific for your OS.
+
 ## How to use
 
 :warning: For now it only supports gitlab
