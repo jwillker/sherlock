@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.4.0
-	github.com/stretchr/testify v1.4.0
+	github.com/stretchr/testify v1.7.1
 	github.com/xanzy/go-gitlab v0.66.0
 	gopkg.in/yaml.v3 v3.0.0
 )
@@ -25,5 +25,4 @@ require (
 	golang.org/x/time v0.0.0-20220411224347-583f2d630306 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
