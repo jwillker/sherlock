@@ -9,7 +9,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "sherlock",
-	Short: "A tool to search and index Golang projetcs in Sally vanity config",
+	Short: "A tool to search and index Golang projects in Sally vanity config",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

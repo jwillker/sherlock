@@ -10,6 +10,8 @@ import (
 func TestGenSallyConf(t *testing.T) {
 	type args struct {
 		output string
+		godoc  string
+		url    string
 		pkgs   *[]entity.Package
 	}
 	tests := []struct {
@@ -49,7 +51,7 @@ func TestGenSallyConf(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			tt.assertion(t, GenSallyConf(tt.args.output, tt.args.pkgs))
+			tt.assertion(t, GenSallyConf(tt.args.output, tt.args.godoc, tt.args.url, tt.args.pkgs))
 		})
 	}
 }
