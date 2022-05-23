@@ -5,7 +5,7 @@
 [![build](https://github.com/jwillker/sherlock/actions/workflows/build.yml/badge.svg)](https://github.com/jwillker/sherlock/actions/workflows/build.yml)
 [![golangci-lint](https://github.com/jwillker/sherlock/actions/workflows/lint.yml/badge.svg)](https://github.com/jwillker/sherlock/actions/workflows/lint.yml)
 
-A tool to search and index Golang projetcs in Sally vanity config
+A tool to search and index Golang projects in [Sally](https://github.com/uber-go/sally) vanity config
 
 ## Install
 
@@ -24,11 +24,39 @@ Usage:
   sherlock investigate [flags]
 
 Flags:
-  -u, --base-url string   GitLab api url. Default https://gitlab.com/api/v4
-  -g, --group-id int      GitLab group id
-  -h, --help              help for investigate
-  -o, --output string     Vanity packages config. Default: packages.yaml (default "packages.yaml")
+  -u, --base-url string     GitLab api url. Default https://gitlab.com/api/v4
+  -d, --godoc string        Godoc URL
+  -g, --group-id int        GitLab group id
+  -h, --help                help for investigate
+  -o, --output string       Vanity packages config. Default: packages.yaml (default "packages.yaml")
+  -v, --vanity-url string   Sally vanity URL
 ```
+
+
+## Example
+
+Running:
+
+`sherlock investigate -u https://gitlab.my-company.com/api/v4 -g 123 -d godoc.my-company.com/pkg -v go.my-company.com`
+
+Result:
+
+`cat packages.yaml`
+
+```yaml
+godoc:
+    host: godoc.my-company.com/pkg
+url: go.my-company.com
+packages:
+    logs:
+        repo: https://gitlab.my-company.com/libs/golang/logs.git
+    sqs:
+        repo: https://gitlab.my-company.com/libs/golang/sqs.git
+```
+
+So you can host this using [Sally](https://github.com/uber-go/sally) vanity by running:
+
+`sally -yml packages.yaml -port 8080`
 
 ## Developing
 Use make help to see what to run, some options:
