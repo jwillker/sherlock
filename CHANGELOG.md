@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.1 - 2022-05-24
+
+- fix: return repositorie without https
+
 ## v0.2.0 - 2022-05-22
 
 - feat: generate all the sally config
