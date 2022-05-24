@@ -1,6 +1,10 @@
 package entity
 
-import gitlab "github.com/xanzy/go-gitlab"
+import (
+	"strings"
+
+	gitlab "github.com/xanzy/go-gitlab"
+)
 
 type Package struct {
 	Name string
@@ -8,8 +12,10 @@ type Package struct {
 }
 
 func NewPackage(gitlabProject *gitlab.Project) Package {
+	repo := strings.TrimPrefix(gitlabProject.HTTPURLToRepo, "https://")
+
 	return Package{
 		Name: gitlabProject.Path,
-		Repo: gitlabProject.HTTPURLToRepo,
+		Repo: repo,
 	}
 }
