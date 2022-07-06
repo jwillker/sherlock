@@ -3,7 +3,7 @@ package cmd
 // Flags
 
 var (
-	GroupID   int
+	GroupIDs  []int
 	BaseURL   string
 	Output    string
 	Godoc     string

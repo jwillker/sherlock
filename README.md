@@ -26,7 +26,7 @@ Usage:
 Flags:
   -u, --base-url string     GitLab api url. Default https://gitlab.com/api/v4
   -d, --godoc string        Godoc URL
-  -g, --group-id int        GitLab group id
+  -g, --group-ids int       List of Gitlab group ids
   -h, --help                help for investigate
   -o, --output string       Vanity packages config. Default: packages.yaml (default "packages.yaml")
   -v, --vanity-url string   Sally vanity URL
@@ -57,6 +57,12 @@ packages:
 So you can host this using [Sally](https://github.com/uber-go/sally) vanity by running:
 
 `sally -yml packages.yaml -port 8080`
+
+### Using multiple groups
+
+You can pass any number of groups:
+
+`sherlock investigate -u https://gitlab.my-company.com/api/v4 -g 123 -g 456 -g 789 -d godoc.my-company.com/pkg -v go.my-company.com`
 
 ## Developing
 Use make help to see what to run, some options:

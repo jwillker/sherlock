@@ -1,6 +1,8 @@
 package gitlab
 
-import gitlab "github.com/xanzy/go-gitlab"
+import (
+	gitlab "github.com/xanzy/go-gitlab"
+)
 
 // ListGroupProjects get a list of group projects
 func (g *GitLab) ListGroupProjects(groupID int) ([]*gitlab.Project, error) {
@@ -22,8 +24,24 @@ func (g *GitLab) ListGroupProjects(groupID int) ([]*gitlab.Project, error) {
 		if err != nil {
 			return []*gitlab.Project{}, err
 		}
-		// Append projects
-		projects = append(projects, ps...)
+
+		for _, v := range ps {
+			includeProject := false
+			langs, _, e := g.Client.Projects.GetProjectLanguages(v.ID, nil)
+			if e != nil {
+				continue
+			}
+
+			for lang, value := range *langs {
+				if lang == "Go" && value > 10 {
+					includeProject = true
+				}
+			}
+
+			if includeProject {
+				projects = append(projects, v)
+			}
+		}
 
 		// Exit the loop when we've seen all pages.
 		if resp.CurrentPage >= resp.TotalPages {
