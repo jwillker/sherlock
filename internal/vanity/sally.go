@@ -20,10 +20,10 @@ type Pkg struct {
 }
 
 // GenSallyConf generate Sally packages config format
-func GenSallyConf(output, godoc, url string, pkgs *[]entity.Package) error {
+func GenSallyConf(output, godoc, url string, pkgs []entity.Package) error {
 	packages := map[string]Pkg{}
 
-	for _, p := range *pkgs {
+	for _, p := range pkgs {
 		packages[p.Name] = Pkg{
 			Repo: p.Repo,
 		}
@@ -40,7 +40,6 @@ func GenSallyConf(output, godoc, url string, pkgs *[]entity.Package) error {
 	}
 
 	data, err := yaml.Marshal(&config)
-
 	if err != nil {
 		return err
 	}

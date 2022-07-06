@@ -12,7 +12,7 @@ func TestGenSallyConf(t *testing.T) {
 		output string
 		godoc  string
 		url    string
-		pkgs   *[]entity.Package
+		pkgs   []entity.Package
 	}
 	tests := []struct {
 		name      string
@@ -23,12 +23,12 @@ func TestGenSallyConf(t *testing.T) {
 			name: "good-config",
 			args: args{
 				output: "packages.yaml",
-				pkgs: &[]entity.Package{
-					entity.Package{
+				pkgs: []entity.Package{
+					{
 						Name: "atomic",
 						Repo: "github.com/uber-go/atomic",
 					},
-					entity.Package{
+					{
 						Name: "goleak",
 						Repo: "github.com/uber-go/goleak",
 					},
@@ -42,7 +42,7 @@ func TestGenSallyConf(t *testing.T) {
 			name: "bad-config",
 			args: args{
 				output: "no-existent-dir/packages.yaml",
-				pkgs:   &[]entity.Package{},
+				pkgs:   []entity.Package{},
 			},
 			assertion: func(t assert.TestingT, err error, args ...interface{}) bool {
 				return assert.Error(t, err)
